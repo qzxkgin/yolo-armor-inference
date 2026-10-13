@@ -25,7 +25,7 @@
 
     # 显式指定权重、输入视频与输出位置
     python infer.py --weights weights/best.pt --source assets/armor_raw.mp4 \\
-        --output results/armor_result.mp4 --device 0 --imgsz 960 --conf 0.25
+        --output results/armor_result.mp4 --device 0 --imgsz 640 --conf 0.25
 
     # 没有 GPU 时用 CPU 推理
     python infer.py --device cpu
@@ -213,7 +213,8 @@ def parse_args(argv: list[str] | None = None) -> argparse.Namespace:
                         help="保存代表性截图的数量，0 表示不保存")
     parser.add_argument("--device", default="auto",
                         help="推理设备：auto / 0 / cpu")
-    parser.add_argument("--imgsz", type=int, default=960, help="推理输入尺寸")
+    parser.add_argument("--imgsz", type=int, default=640,
+                        help="推理输入尺寸，须为 32 的整数倍；默认 640，与模型训练尺寸一致")
     parser.add_argument("--conf", type=float, default=0.25, help="置信度阈值")
     parser.add_argument("--iou", type=float, default=0.7, help="NMS IoU 阈值")
     parser.add_argument("--max-det", type=int, default=100, help="单帧最大目标数")
