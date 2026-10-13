@@ -1,0 +1,19 @@
+# ---------------------------------------------------------------------------
+# 装甲板推理环境依赖
+#
+# 实测通过的版本（Python 3.14.7 / Windows 11）：
+#   ultralytics 8.4.176, torch 2.14.1, torchvision 0.29.1,
+#   opencv-python 5.0.0.93, numpy 2.5.4
+#
+# 说明：
+#   * 默认从 PyPI 安装的 torch 在 Windows 上是 CPU 版本，可直接使用；
+#   * 若要用 NVIDIA GPU 推理，请先安装 CUDA 版 torch，例如：
+#       pip install torch torchvision --index-url https://download.pytorch.org/whl/cu128
+#     然后再执行下面的 ultralytics 安装命令。
+# ---------------------------------------------------------------------------
+
+ultralytics>=8.4.0
+torch>=2.9.0
+torchvision>=0.24.0
+opencv-python>=4.10.0
+numpy>=2.0.0
